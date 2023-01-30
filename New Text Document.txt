@@ -1,0 +1,24 @@
+const express = require("express");
+const morgan = require("morgan");
+
+const server = express();
+
+
+server.use(morgan('dev'));
+
+server.listen(8080, () => {
+    console.log("started listening port:8080 ..,.,.,.,.,.,.");
+})
+//morgan(':method :url :status - :response-time ms');
+server.use((request, response, next) => {
+    // console.log("SSSSSSSSS")
+
+})
+
+//not found layer
+
+server.use((request, response, next) => {
+    response.status(404).json({ data: "requested page not found" });
+})
+
+//
